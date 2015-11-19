@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TEST</title>
+
+		<script type="text/javascript">
+
+		// document.addEventListener('state-buddy', function(data) {
+		// 	switch (data.detail.type) {
+		// 		case 'GET_STATE':
+		// 			var evt = document.createEvent('CustomEvent');
+		// 			evt.initCustomEvent('state-buddy', true, true, { type: 'SEND_STATE', state: { mystate: true} });
+		// 			document.dispatchEvent(evt);
+		// 			break;
+		// 	}
+		// });
+
+		function receiveMessage(event) {
+		  console.log('ONPAGE', event, event.source === window);
+			// event.currentWindow.postMessage({what: 6}, '*');
+		}
+		window.addEventListener("message", receiveMessage, false);
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

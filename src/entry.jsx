@@ -11,7 +11,20 @@ require('isomorphic-fetch');
 
 import configureStore from './store';
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
+	// var port = chrome.runtime.connect();
+	// function receiveMessage(event) {
+	// 	console.log('CONTENTe', event, event.source === event.target);
+	// }
+	// window.addEventListener('message', receiveMessage, false);
+	//
+	// port.postMessage({ type: 'GET_STATE' }, '*');
+	//
+	// console.log(window);
+
+
 	chrome.storage.sync.get({
 		memberId: null,
 		selectedTargetName: null,
