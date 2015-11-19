@@ -1,0 +1,27 @@
+{
+	"ecmaFeatures": {
+		"jsx": true,
+		"modules": true
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"rules": {
+		"comma-dangle": [2, "never"],
+		"eqeqeq": 2,
+		"no-cond-assign": 2,
+		"no-dupe-keys": 2,
+		"no-extra-semi": 2,
+		"no-mixed-spaces-and-tabs": [2, "smart-tabs"],
+		"no-underscore-dangle": 2,
+		"no-unreachable": 2,
+		"no-unused-vars": 2,
+		"quotes": [1, "single"],
+		"semi": [2, "always"]
+	},
+	"plugins": [
+		"react"
+	]
+}

@@ -1,0 +1,34 @@
+{
+	"application": {
+		"settings": {
+			"modified": false,
+			"targets": [{
+				"name": "Not Set",
+				"url": null,
+				"authHost": null
+			}, {
+				"name": "Sand",
+				"url": "http://console-config.sand-08.nym2.adnxs.net",
+				"authHost": "http://sand.api.appnexus.com"
+			}, {
+				"name": "Sor Autoenv",
+				"url": "http://01-console-config-sor.envnxs.net",
+				"authHost": "http://01-hbapi-sor.envnxs.net"
+			}, {
+				"name": "Prod",
+				"url": "http://console-config.adnxs.net",
+				"authHost": "https://api.appnexus.com"
+			}],
+			"current": {
+				"username": null,
+				"selectedTargetName": "Not Set",
+				"memberId": null
+			},
+			"original": {
+				"username": null,
+				"selectedTargetName": "Not Set",
+				"memberId": null
+			}
+		}
+	}
+}

@@ -1,0 +1,45 @@
+{
+  "name": "state-buddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js --ext .jsx src"
+  },
+  "author": "Tim Santeford",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "classnames": "^2.1.5",
+    "es6-promise": "^3.0.2",
+    "history": "^1.12.5",
+    "isomorphic-fetch": "^2.1.1",
+    "lodash": "^3.10.1",
+    "react": "^0.14.0",
+    "react-bootstrap": "^0.27.1",
+    "react-dom": "^0.14.0",
+    "react-redux": "^3.1.0",
+    "redux": "^3.0.2",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.19.0",
+    "del": "^2.0.2",
+    "eslint": "^1.6.0",
+    "eslint-plugin-react": "^3.5.1",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.6",
+    "json-loader": "^0.5.3",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "style-loader": "^0.12.4",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}
