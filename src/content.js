@@ -1,10 +1,6 @@
 console.log('CONTENT.js');
 
 
-document.body.style.backgroundColor = 'green';
-
-
-
 // For reference
 // document.addEventListener('state-buddy', function(data) {
 // 	switch (data.detail.type) {
@@ -17,9 +13,16 @@ document.body.style.backgroundColor = 'green';
 // 	}
 // });
 
+function receiveMessage(event) {
+	console.log('CONTENT: Event', event);
+}
+window.addEventListener('message', receiveMessage, false);
+
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  function (request, sender, sendResponse) {
+		console.log('CONTENT: FORWARD', request);
+		// Forward messages from background extension
 		window.postMessage(request, '*');
 		// console.log(request, sender, sendResponse);
     // if (request.type === 'GET_STATE' ) {

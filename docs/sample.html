@@ -6,19 +6,19 @@
 
 		<script type="text/javascript">
 
-		// document.addEventListener('state-buddy', function(data) {
-		// 	switch (data.detail.type) {
-		// 		case 'GET_STATE':
-		// 			var evt = document.createEvent('CustomEvent');
-		// 			evt.initCustomEvent('state-buddy', true, true, { type: 'SEND_STATE', state: { mystate: true} });
-		// 			document.dispatchEvent(evt);
-		// 			break;
-		// 	}
-		// });
-
 		function receiveMessage(event) {
 		  console.log('ONPAGE', event, event.source === window);
-			// event.currentWindow.postMessage({what: 6}, '*');
+			if (event.data && event.data.type) {
+				switch (event.data.type) {
+					case 'GET_STATE':
+						console.log('SAMPLE: GET_STATE');
+						window.postMessage({what: 6}, '*');
+					break;
+					case 'SET_STATE':
+						console.log('SAMPLE: SET_STATE', event.data.state);
+					break;
+				}
+			}
 		}
 		window.addEventListener("message", receiveMessage, false);
 
