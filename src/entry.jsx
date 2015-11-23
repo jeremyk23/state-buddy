@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	chrome.storage.sync.get({
 		memberId: null,
-		selectedTargetName: null,
+		selectedPreviousState: null,
 		username: null,
 		authToken: null
 	}, (current) => {

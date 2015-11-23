@@ -16,7 +16,7 @@ export default function reducer(state = {}, action) {
 			});
 
 		case 'SETTINGS_SAVE':
-			chrome.storage.sync.set(_.pick(current, 'memberId', 'authToken', 'selectedTargetName', 'username'), () => {});
+			chrome.storage.sync.set(_.pick(current, 'memberId', 'authToken', 'selectedPreviousState', 'username'), () => {});
 			return Object.assign({}, state, {
 				modified: false,
 				original: Object.assign({}, current)
