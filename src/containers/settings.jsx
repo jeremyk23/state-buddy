@@ -21,13 +21,19 @@ const Settings = React.createClass({
 					<div className='row'>
 						<div className='col-md-12'>
 							<form>
-								<div className='form-group'>
-									<div className='row'>
-										<div className='col-md-6'>
+								<div className='row'>
+									<div className='col-md-12'>
+										<div className='form-group'>
 											<label>Save State</label>
-										</div>
-										<div className='col-md-6'>
-											<button className='btn btn-primary' onClick={this.handleSave}>Save</button>
+											<input
+												id='stateName'
+												type='text'
+												className='form-control'
+												value={`State on ${moment().format('LLL')}`}
+												onChange={_.partial(this.handleChange, 'stateName')} />
+											<div className='save-button-container'>
+												<button className='btn btn-primary' onClick={this.handleSave}>Save</button>
+											</div>
 										</div>
 									</div>
 								</div>
