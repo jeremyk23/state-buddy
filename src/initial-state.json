@@ -1,5 +1,8 @@
 {
 	"application": {
-		"states": {}
+		"states": {},
+		"settings": {
+			"nameInput": ""
+		}
 	}
 }

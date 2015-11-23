@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import settingsReducer from './states';
+import statesReducer from './states';
+import settingsReducer from './settings';
 
 export default combineReducers({
-	states: settingsReducer
+	states: statesReducer,
+	settings: settingsReducer
 });

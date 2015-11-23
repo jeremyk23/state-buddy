@@ -11,27 +11,14 @@ require('isomorphic-fetch');
 
 import configureStore from './store';
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
-	// var port = chrome.runtime.connect();
-	// function receiveMessage(event) {
-	// 	console.log('CONTENTe', event, event.source === event.target);
-	// }
-	// window.addEventListener('message', receiveMessage, false);
-	//
-	// port.postMessage({ type: 'GET_STATE' }, '*');
-	//
-	// console.log(window);
+	chrome.storage.local.get((states) => {
 
-
-	chrome.storage.sync.get({
-		states: null
-	}, (states) => {
-
-		const initialState = _.merge(Object.assign({}, initialStateJson), {
-			application: states
-		});
+		const initialState = _.defaultsDeep({}, initialStateJson, {
+			application: {
+				states
+			}
+		}, initialStateJson);
 
 		const store = configureStore(initialState);
 

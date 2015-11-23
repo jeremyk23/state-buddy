@@ -9,12 +9,15 @@
 // 			break;
 // 	}
 // });
-
 window.addEventListener('message', function (event) {
-	chrome.runtime.sendMessage({ type: event.data.type, state: event.data.state });
+	if (event.data.type === 'SEND_STATE') {
+		chrome.runtime.sendMessage({ type: event.data.type, state: event.data.state });
+	}
 }, false);
 
 chrome.runtime.onMessage.addListener(function(request) {
-	window.postMessage(request, '*');
+	if (request.type === 'GET_STATE' || request.type === 'SET_STATE') {
+		window.postMessage(request, '*');
+	}
   }
 );
