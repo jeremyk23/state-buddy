@@ -15,9 +15,8 @@ function getCurrentTab(callback) {
 }
 
 getCurrentTab((tab) => {
-	chrome.runtime.onMessage.addListener(
-		function(request, sender, sendResponse) {
-			if(request.type === 'SEND_STATE' ) {
+	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+			if (request.type === 'SEND_STATE' ) {
 				console.log('YES!!!!', request.state);
 			}
 		}
