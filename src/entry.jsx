@@ -26,19 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	chrome.storage.sync.get({
-		memberId: null,
-		selectedPreviousState: null,
-		username: null,
-		authToken: null
-	}, (current) => {
+		states: null
+	}, (states) => {
 
 		const initialState = _.merge(Object.assign({}, initialStateJson), {
-			application: {
-				settings: {
-					current: current,
-					original: current
-				}
-			}
+			application: states
 		});
 
 		const store = configureStore(initialState);

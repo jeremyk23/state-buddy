@@ -1,31 +1,20 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateField, save, reset } from '../actions/settings';
+import { saveState } from '../actions/states';
 
 function mapStateToProps(state) {
-	return _.pick(state.application.settings, 'modified', 'previousStates', 'current', 'original');
+	return state.application;
 }
 
 const Settings = React.createClass({
-	hasChanges() {
-		return this.props.modified;
-	},
-
-	handleChange(fieldName, evt) {
-		this.props.dispatch(updateField(fieldName, evt.target.value));
-	},
-
 	handleSave() {
-		this.props.dispatch(save());
-	},
-
-	handleReset() {
-		this.props.dispatch(reset());
+		chrome.runtime.sendMessage({ type: 'GET_STATE' });
 	},
 
 	render() {
-		let { previousStates, current } = this.props;
+		let { states } = this.props;
+
 		return (
 			<div id='settings'>
 				<div id='content' className='container has-footer'>
@@ -44,19 +33,19 @@ const Settings = React.createClass({
 								</div>
 								<div className='form-group'>
 									<label>History</label>
-									<select className='form-control' value={current.selectedPreviousState} onChange={_.partial(this.handleChange, 'selectedPreviousState')}>
-										{_.map(previousStates, (target) => {
+									<select className='form-control' value={states} onChange={console.log.bind(console)}>
+										{_.map(states, (target) => {
 											return <option key={target.name} value={target.name}>{target.name}</option>;
 											})}
-										</select>
-									</div>
-								</form>
-							</div>
+									</select>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
-			);
-		}
-	});
+			</div>
+		);
+	}
+});
 
-	export default connect(mapStateToProps)(Settings);
+export default connect(mapStateToProps)(Settings);

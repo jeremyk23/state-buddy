@@ -1,22 +1,5 @@
 {
 	"application": {
-		"settings": {
-			"modified": false,
-			"previousStates": [{
-				"name": "Not Set",
-				"url": null,
-				"authHost": null
-			}],
-			"current": {
-				"username": null,
-				"selectedPreviousState": "Not Set",
-				"memberId": null
-			},
-			"original": {
-				"username": null,
-				"selectedPreviousState": "Not Set",
-				"memberId": null
-			}
-		}
+		"states": {}
 	}
 }

@@ -21,14 +21,6 @@ getCurrentTab((tab) => {
 			}
 		}
 	);
-
-	try {
-		chrome.tabs.sendMessage(tab.id, {'type': 'GET_STATE'});
-	} catch (e) {
-		console.log(e);
-	} finally {
-		console.log('APP.jsx: sendMessage attempt');
-	}
 });
 
 function mapStateToProps(state) {
