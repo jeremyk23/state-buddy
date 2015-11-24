@@ -33,15 +33,15 @@
 
 <p>In order to work with State Buddy, your app needs 2 things:</p> 
 <ul>
-  <ol>A centralized store that holds onto all application state</ol>
-  <ol>Methods to get and set that store</ol>
+  <li>A centralized store that holds onto all application state</li>
+  <li>Methods to get and set that store</li>
 </ul>
 <p>That's it! In your centralized store just include this snippet:</p>
 <pre>
-  // Wire in State-Buddy
-	window.addEventListener('message', function() {
+// Wire in State-Buddy
+window.addEventListener('message', function() {
     switch (event.data.type) {
-        case 'GET_STATE': 
+    	case 'GET_STATE': 
             event.target.postMessage({
                 type: 'SEND_STATE',
                 state: JSON.stringify(_getStore()) // Replace this with your method to get application state
