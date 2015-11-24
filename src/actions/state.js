@@ -12,6 +12,22 @@ export function addState(name, state) {
 	};
 }
 
+export function deleteState(stateToDelete) {
+	return {
+		type: 'DELETE_STATE',
+		stateToDelete
+	};
+}
+
+export function triggerDelete(stateToDelete) {
+	return (dispatch, getState) => {
+		chrome.storage.local.get((states) => {
+			chrome.storage.local.remove(stateToDelete);
+			dispatch(deleteState(stateToDelete));
+		});
+	}
+}
+
 export function saveState(state) {
 	return (dispatch, getState) => {
 		let {
@@ -27,6 +43,7 @@ export function saveState(state) {
 			states[name] = state.state;
 			chrome.storage.local.set(states);
 			dispatch(addState(name, state));
+			dispatch(selectedStateChange(name));
 		});
 	};
 }
@@ -35,6 +52,13 @@ export function textInputChange(input) {
 	return {
 		type: 'INPUT_CHANGE',
 		input
+	};
+}
+
+export function selectedStateChange(name) {
+	return {
+		type: 'SELECTED_STATE_CHANGE',
+		name
 	};
 }
 

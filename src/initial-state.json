@@ -2,7 +2,8 @@
 	"application": {
 		"states": {},
 		"settings": {
-			"nameInput": ""
+			"nameInput": "",
+			"selectedState": ""
 		}
 	}
 }

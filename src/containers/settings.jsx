@@ -36,6 +36,11 @@ const Settings = React.createClass({
 		});
 	},
 
+	handleDelete(evt) {
+		let { actions, states, settings } = this.props;
+		actions.triggerDelete(settings.selectedState);
+	},
+
 	handleTextInput(evt) {
 		let { actions } = this.props;
 
@@ -46,6 +51,10 @@ const Settings = React.createClass({
 	loadState(evt) {
 		let { actions } = this.props;
 		actions.loadState(evt.target.value);
+		var index = evt.nativeEvent.target.selectedIndex;
+		var stateName = evt.nativeEvent.target[index].text;
+		actions.selectedStateChange(stateName);
+		actions.textInputChange(stateName);
 	},
 
 	render() {
@@ -74,12 +83,15 @@ const Settings = React.createClass({
 								</div>
 							</div>
 							<div className='form-group'>
-								<label>History</label>
-								<select className='form-control' value={'Select'} onChange={this.loadState}>
+								<label>States</label>
+								<select className='form-control' value={states[settings.selectedState]} onChange={this.loadState}>
 									{_.map(states, (state, name) => {
 									return <option key={name} value={state}>{name}</option>;
 									})}
 								</select>
+								<div className='save-button-container'>
+									<button className='btn btn-danger' onClick={this.handleDelete}>Delete</button>
+								</div>
 							</div>
 						</div>
 					</div>
