@@ -31,7 +31,33 @@
 <h3>
 <a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h3>
 
-<p>In order to work with State Buddy, your app needs a centralized store that holds onto your application state. This is most easily accomplishable through libraries like Redux or Baobab.</p>
+<p>In order to work with State Buddy, your app needs 2 things:</p> 
+<ul>
+  <ol>A centralized store that holds onto all application state</ol>
+  <ol>Methods to get and set that store</ol>
+</ul>
+<p>That's it! In your centralized store just include this snippet:</p>
+<code>
+  // Wire in State-Buddy
+	window.addEventListener('message', function() {
+    switch (event.data.type) {
+        case 'GET_STATE': 
+            event.target.postMessage({
+                type: 'SEND_STATE',
+                state: JSON.stringify(_getStore()) // Replace this with your method to get application state
+            }, '*');
+            break;
+
+        case 'SET_STATE':
+            state = JSON.parse(event.data.state);
+            _setStore(state); // Replace this with your method to set application state
+            break;
+
+        default: 
+            break;
+    }
+});
+</code>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/jeremyk23/state-buddy">State-buddy</a> is maintained by <a href="https://github.com/jeremyk23">jeremyk23</a>.</span>
