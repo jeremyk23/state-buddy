@@ -19,7 +19,7 @@ Adds state management directly to Chrome
 1. Clone the source
 
 	```bash
-	git clone ssh://git@stash.corp.appnexus.com:7999/~tsanteford/state-buddy.git
+	https://github.com/jeremyk23/state-buddy.git
 	```
 
 2. Build the extension by typing the following in the project root:
