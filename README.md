@@ -2,7 +2,7 @@
 
 Adds state management directly to Chrome
 
-![Preview](./docs/console-admin-preview-small.gif?at=master&raw)
+![Preview](./docs/demo-screenshot.png)
 
 ## User Installation
 
