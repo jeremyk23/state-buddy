@@ -36,8 +36,8 @@ const Settings = React.createClass({
 		});
 	},
 
-	handleDelete(evt) {
-		let { actions, states, settings } = this.props;
+	handleDelete() {
+		let { actions, settings } = this.props;
 		actions.triggerDelete(settings.selectedState);
 	},
 
@@ -59,6 +59,10 @@ const Settings = React.createClass({
 
 	render() {
 		let { states, settings } = this.props;
+		let options = _.map(states, (state, name) => {
+			let selected = settings.selectedState === name;
+			return <option key={name} value={state} selected={selected}>{name}</option>;
+		});
 
 		return (
 			<div id='settings'>
@@ -85,9 +89,7 @@ const Settings = React.createClass({
 							<div className='form-group'>
 								<label>States</label>
 								<select className='form-control' value={states[settings.selectedState]} onChange={this.loadState}>
-									{_.map(states, (state, name) => {
-									return <option key={name} value={state}>{name}</option>;
-									})}
+									{ options }
 								</select>
 								<div className='save-button-container'>
 									<button className='btn btn-danger' onClick={this.handleDelete}>Delete</button>
